@@ -3,3 +3,53 @@
   margin: 0;
   padding: 0;
 }
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.keys {
+  display: flex;
+  min-height: 100vh;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(96, 110, 117, 0.911);
+}
+
+.key {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0.4rem solid black;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem 1.5rem;
+  width: 10rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 0.5rem black;
+  cursor: pointer;
+  transition: all 500ms;
+}
+
+.key:hover {
+  border: 0.4rem solid white;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+kbd {
+  font-size: 4rem;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ffc600;
+}
