@@ -1,10 +1,10 @@
 const KEYS = document.querySelectorAll('.key');
 
 function playSound(event) {
-  const drumKick = document.querySelector(`audio[data-key=${event.key}]`);
-  const key = document.querySelector(`.key[data-key=${event.key}]`);
+  const drumKick = document.querySelector(`audio[data-key="${event.key}"]`);
+  const key = document.querySelector(`.key[data-key="${event.key}"]`);
+  if (!drumKick || !key) return;
   key.classList.add('active');
-  if (!drumKick) return;
   drumKick.currentTime = 0;
   drumKick.play();
 }
