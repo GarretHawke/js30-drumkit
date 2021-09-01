@@ -1,19 +1,22 @@
 const KEYS = document.querySelectorAll('.key');
 
-function playSound(event) {
-  const drumKick = document.querySelector(`audio[data-key="${event.key}"]`);
-  const key = document.querySelector(`.key[data-key="${event.key}"]`);
-  if (!drumKick || !key) return;
-  key.classList.add('active');
-  drumKick.currentTime = 0;
-  drumKick.play();
+function setActive(event) {
+  const targetKey = document.querySelector(`.key[data-key="${event.code}"]`);
+  const targetAudio = document.querySelector(`audio[data-key="${event.code}"]`);
+  if (!targetKey || !targetAudio) return;
+  if (targetKey.classList.contains('active')) return;
+  targetAudio.currentTime = 0;
+  targetAudio.play();
+  targetKey.classList.add('active');
 }
 
-function removeTransition(event) {
-  if (event.propertyName !== 'transform') return;
-  this.classList.remove('active');
+function setInactive(event) {
+  const targetKey = document.querySelector(`.key[data-key="${event.code}"]`);
+  const targetAudio = document.querySelector(`audio[data-key="${event.code}"]`);
+  if (!targetKey || !targetAudio) return;
+  targetKey.classList.remove('active');
 }
 
-KEYS.forEach(key => key.addEventListener('transitionend', removeTransition));
+window.addEventListener('keydown', setActive);
 
-window.addEventListener('keydown', playSound);
+window.addEventListener('keyup', setInactive);
